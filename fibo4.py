@@ -1,10 +1,12 @@
-z=2
-y=1
 x=1
-print (x)
-print (y)
-for i in range(8):
-	print (z)
-	x=y
-        y=z
-        z=x+y
+y=1
+z=0
+i=1
+print ("fibo["+str(i)+"]="+str(x))
+i=2
+print ("fibo["+str(i)+"]="+str(y))
+for i in range(3):
+    z=x+y
+    x=y
+    y=z
+    print ("fibo["+str(i+2)+"]="+str(z))

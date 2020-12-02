@@ -1,4 +1,4 @@
-inputarray = [1, 2, 3, 4, 5, 6]
+inputarray = [8, 7, 4, 3, 9, 6]
 print ("My input array = ")
 print (inputarray)
 for i in range(len(inputarray)):
@@ -7,5 +7,5 @@ for i in range(len(inputarray)):
             larger=inputarray[i]
             inputarray[i]=inputarray[j]
             inputarray[j]=larger
-print ("My output array = ")
+print ("My output array=")
 print (inputarray)
