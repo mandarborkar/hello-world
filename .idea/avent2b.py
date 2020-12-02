@@ -15,12 +15,22 @@ for i in range (0,len(mylist)):
     password= mylist[i][found3+2:]
     passstrcount=int(password.count(passstr))
     totalcount = totalcount + 1
-    if passstrcount >= passmin and passstrcount <= passmax :
+    if mylist[i][passmin] == passstr and mylist[i][passmax] != passstr :
+        print("password is valid - " + password + " ; " + str(passmin)+" ; " + str(passstrcount) + " ; " + str(passmax) + " ; " + passstr + " ; " + mylist[i])
+        numberofvalidpasswords = numberofvalidpasswords + 1
+    elif mylist[i][passmin] != passstr and mylist[i][passmax] == passstr :
         print("password is valid - " + password + " ; " + str(passmin)+" ; " + str(passstrcount) + " ; " + str(passmax) + " ; " + passstr + " ; " + mylist[i])
         numberofvalidpasswords = numberofvalidpasswords + 1
     else:
         print("password is invalid - " + password + " ; " + str(passmin)+" ; " + str(passstrcount) + " ; " + str(passmax) + " ; " + passstr + " ; " + mylist[i])
         numberofinvalidpasswords = numberofinvalidpasswords + 1
+
+#    if passstrcount >= passmin and passstrcount <= passmax :
+#        print("password is valid - " + password + " ; " + str(passmin)+" ; " + str(passstrcount) + " ; " + str(passmax) + " ; " + passstr + " ; " + mylist[i])
+#        numberofvalidpasswords = numberofvalidpasswords + 1
+#    else:
+#        print("password is invalid - " + password + " ; " + str(passmin)+" ; " + str(passstrcount) + " ; " + str(passmax) + " ; " + passstr + " ; " + mylist[i])
+#        numberofinvalidpasswords = numberofinvalidpasswords + 1
 
 print ("Total : " + str(totalcount))
 print ("number of valid passwords : " + str(numberofvalidpasswords))
