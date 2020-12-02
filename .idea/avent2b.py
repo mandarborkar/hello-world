@@ -1,5 +1,5 @@
 # 3-5 f: fgfff
-f1 = open("/Users/mborkar/PycharmProjects/hello-world/avent2.txt", "r")
+f1 = open("/Users/mborkar/PycharmProjects/hello-world/avent2input.txt", "r")
 mylist = f1.readlines()
 numberofvalidpasswords=0
 totalcount=0
