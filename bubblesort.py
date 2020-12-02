@@ -7,5 +7,5 @@ for i in range(len(inputarray)):
             larger=inputarray[i]
             inputarray[i]=inputarray[j]
             inputarray[j]=larger
-print ("My output array=")
+print ("My output array = ")
 print (inputarray)

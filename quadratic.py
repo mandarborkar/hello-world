@@ -12,3 +12,4 @@ else:
 	x2=(-1*b-(math.sqrt((b*b)-(4*a*c))))/2*a
 	print (str(a)+"x^2+"+str(b)+"x+"+str(c)+"=0")
 	print ("Solution for x are "+str(x1)+" and "+str(x2))
+# upload latest
