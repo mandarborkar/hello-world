@@ -1,7 +1,7 @@
 import turtle
 import random
 import time
-# upload latest
+
 increments = 10
 
 # start line is at x=-250
