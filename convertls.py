@@ -14,8 +14,8 @@ print (a)
 a=a.replace('\r',';').replace('\n','')
 print (a)
 f2.write(a)
-print ('Writing output file....')
+print ('Writing output file.....')
 f2.close()
-print ('Closing output file....')
+print ('Closing output file.....')
 
 
