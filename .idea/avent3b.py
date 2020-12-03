@@ -3,9 +3,9 @@ def numberoftrees (mylist, slope, step):
     for i in range (step,len(mylist),step):
         if mylist[i][(i*slope)] == "#":
             addtotree += 1
-            print (mylist[i][(i*slope)] + " found tree on " + str(i) + ";" + str(addtotree))
+            print (mylist[i][(i*slope)] + " found tree at " + str(i) + ";" + str(i*slope) + ";"+ str(addtotree))
         else:
-            print (mylist[i][(i*slope)] + " no tree on    " + str(i) + ";" + str(addtotree))
+            print (mylist[i][(i*slope)] + " no tree on    " + str(i) + ";" + str(i*slope) + ";"+ str(addtotree))
     return (int(addtotree))
 
 f1 = open("/Users/mborkar/PycharmProjects/hello-world/avent3input.txt", "r")
@@ -25,7 +25,15 @@ slope1 = numberoftrees(mylist,1,1)
 slope3 = numberoftrees(mylist,3,1)
 slope5 = numberoftrees(mylist,5,1)
 slope7 = numberoftrees(mylist,7,1)
-slope12 = numberoftrees(mylist,1,2)
+# slope12 = numberoftrees(mylist,1,2)
+
+slope12 = 0
+for i in range(1, int(len(mylist)/2)+1):
+    if mylist[i*2][i] == "#":
+        slope12 += 1
+        print(mylist[i*2][i] + " found tree at " + str(i*2) + ";" + str(i) + ";" + str(slope12))
+    else:
+        print(mylist[i*2][i] + " no tree on    " + str(i*2) + ";" + str(i) + ";" + str(slope12))
 
 print ("Trees for slope 1 = " + str(slope1))
 print ("Trees for slope 3 = " + str(slope3))
