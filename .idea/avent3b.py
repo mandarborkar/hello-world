@@ -25,7 +25,7 @@ slope1 = numberoftrees(mylist,1,1)
 slope3 = numberoftrees(mylist,3,1)
 slope5 = numberoftrees(mylist,5,1)
 slope7 = numberoftrees(mylist,7,1)
-# slope12 = numberoftrees(mylist,1,2)
+slope12 = numberoftrees(mylist,1,2)
 
 slope12 = 0
 for i in range(1, int(len(mylist)/2)+1):
