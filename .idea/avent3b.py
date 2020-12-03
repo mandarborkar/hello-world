@@ -1,6 +1,6 @@
-def numberoftrees (mylist, slope):
+def numberoftrees (mylist, slope, step):
     addtotree = 0
-    for i in range (1,len(mylist)):
+    for i in range (step,len(mylist),step):
         if mylist[i][(i*slope)] == "#":
             addtotree += 1
             print (mylist[i][(i*slope)] + " found tree on " + str(i) + ";" + str(addtotree))
@@ -21,4 +21,15 @@ for i in range (0,len(mylist)):
     for j in range (0,duplicatecount-1):
         mylist[i] += mylist[i]
 
-print ("Trees for slope 3 = " + str(numberoftrees(mylist,3)))
+slope1 = numberoftrees(mylist,1,1)
+slope3 = numberoftrees(mylist,3,1)
+slope5 = numberoftrees(mylist,5,1)
+slope7 = numberoftrees(mylist,7,1)
+slope12 = numberoftrees(mylist,1,2)
+
+print ("Trees for slope 1 = " + str(slope1))
+print ("Trees for slope 3 = " + str(slope3))
+print ("Trees for slope 5 = " + str(slope5))
+print ("Trees for slope 7 = " + str(slope7))
+print ("Trees for slope 1 step 2 = " + str(slope12))
+print ("total trees = " + str ( slope1 * slope3 * slope5 * slope7 * slope12))
