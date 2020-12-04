@@ -3,19 +3,17 @@ mylist = f1.readlines()
 #print (mylist)
 numberofpassports=0
 passport = []
-newpassportcomingup=1
+newpassportcomingup=True
 for i in range (0,len(mylist)):
-    # print("passport = " + passport[numberofpassports])
-    if newpassportcomingup==1 :
+    if newpassportcomingup :
         passport.append(mylist[i])
-        # print ("passport " + str(numberofpassports) + " = " + passport[numberofpassports])
-    if mylist[i] == "\n" :
-        newpassportcomingup=1
-        numberofpassports += 1
+    if mylist[i] != "\n" :
+        passport[numberofpassports] = passport[numberofpassports] + mylist[i]
+        newpassportcomingup = False
     else:
-        passport[numberofpassports]= passport[numberofpassports] + mylist[i]
-        newpassportcomingup = 0
-        # print ("passport " + str(numberofpassports) + " = " + passport[numberofpassports])
+        newpassportcomingup=True
+        numberofpassports += 1
+
 
 ValidPassportcount=0
 for i in range (0,len(passport)):
