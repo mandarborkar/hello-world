@@ -30,4 +30,6 @@ for i in range (0,len(boardingpass)):
 seatid.sort()
 print (seatid)
 print (max(seatid))
-
+for i in range (0,len(seatid)-1):
+    if seatid[i+1] != seatid[i]+1:
+        print (seatid[i])

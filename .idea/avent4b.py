@@ -1,6 +1,37 @@
+#from aocd import get_data
+#mylist = get_data(day=4)
+
 f1 = open("/Users/mborkar/PycharmProjects/hello-world/avent4input.txt", "r")
-mylist = f1.readlines()
-#print (mylist)
+mypassporstring = f1.read()
+passport = mypassporstring.split("\n\n")
+
+def HasRequiredPassportInformation (singlepassport):
+    # print (passportdetails)
+    passportattribute = singlepassport.split (" ")
+    # print (passportattribute)
+    passportattributename = []
+    for i in range (0,len(passportattribute)) :
+        passportattributename.append (passportattribute[i].split (":")[0])
+
+    RequiredPassportInformation = ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"]
+    for requireddetails in RequiredPassportInformation:
+        if requireddetails not in passportattributename :
+            return 'Invalid'
+    return 'Valid'
+
+# cleaning up new lines and multiple spaces for each of the passports
+validpassportcount = 0
+for i in range (0,len(passport)):
+    passport[i] = passport[i].replace ("\n"," ").strip ()
+    passportstatus = HasRequiredPassportInformation (passport[i])
+    passport[i] = passport[i] + " " + passportstatus
+    if passportstatus == 'Valid':
+        validpassportcount +=1
+    print (passport[i])
+#print (passport)
+print ('Valid passports = ' + str(validpassportcount))
+'''
+mylist = mypassporstring.split("\n\n")
 numberofpassports=0
 passport = []
 newpassportcomingup=True
@@ -27,6 +58,8 @@ for i in range (0,len(passport)):
 
 print (str(numberofpassports))
 print (str(ValidPassportcount))
+print (passport[0])
+'''
 ''' 
 You can continue to ignore the cid field, but each other field has strict rules about what values are valid for automatic validation:
 

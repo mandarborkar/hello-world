@@ -1,21 +1,55 @@
+#from aocd import get_data
+#mylist = get_data(day=4)
+
 f1 = open("/Users/mborkar/PycharmProjects/hello-world/avent4input.txt", "r")
-mylist = f1.readlines()
-#print (mylist)
+mypassporstring = f1.read()
+passport = mypassporstring.split("\n\n")
+
+def HasRequiredPassportInformation (passportdetails):
+    # print (passportdetails)
+    RequiredPassportInformation = ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"]
+    for requireddetails in RequiredPassportInformation:
+        if requireddetails not in passportdetails :
+            return 'Invalid'
+    return 'Valid'
+
+def GetPassportdetails (singlepassport):
+    passportattribute = singlepassport.split (" ")
+    # print (passportattribute)
+    passportattributename = []
+    for i in range (0,len(passportattribute)) :
+        passportattributename.append (passportattribute[i].split (":")[0])
+    return passportattributename
+
+# cleaning up new lines and multiple spaces for each of the passports
+validpassportcount = 0
+for i in range (0,len(passport)):
+    passport[i] = passport[i].replace ("\n"," ").strip ()
+    passportdetails = GetPassportdetails (passport[i])
+    passportstatus = HasRequiredPassportInformation (passportdetails)
+    passport[i] = passport[i] + " " + passportstatus
+    if passportstatus == 'Valid':
+        validpassportcount +=1
+    print (passport[i])
+    del passportdetails
+#print (passport)
+print ('Valid passports = ' + str(validpassportcount))
+
+'''
+mylist = mypassporstring.split("\n\n")
 numberofpassports=0
 passport = []
-newpassportcomingup=1
+newpassportcomingup=True
 for i in range (0,len(mylist)):
-    # print("passport = " + passport[numberofpassports])
-    if newpassportcomingup==1 :
+    if newpassportcomingup :
         passport.append(mylist[i])
-        # print ("passport " + str(numberofpassports) + " = " + passport[numberofpassports])
-    if mylist[i] == "\n" :
-        newpassportcomingup=1
-        numberofpassports += 1
+    if mylist[i] != "\n" :
+        passport[numberofpassports] = passport[numberofpassports] + mylist[i]
+        newpassportcomingup = False
     else:
-        passport[numberofpassports]= passport[numberofpassports] + mylist[i]
-        newpassportcomingup = 0
-        # print ("passport " + str(numberofpassports) + " = " + passport[numberofpassports])
+        newpassportcomingup=True
+        numberofpassports += 1
+
 
 ValidPassportcount=0
 for i in range (0,len(passport)):
@@ -29,13 +63,5 @@ for i in range (0,len(passport)):
 
 print (str(numberofpassports))
 print (str(ValidPassportcount))
-''' 
-    byr (Birth Year)
-    iyr (Issue Year)
-    eyr (Expiration Year)
-    hgt (Height)
-    hcl (Hair Color)
-    ecl (Eye Color)
-    pid (Passport ID)
-    cid (Country ID)
+print (passport[0])
 '''
